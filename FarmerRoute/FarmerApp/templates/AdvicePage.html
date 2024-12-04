@@ -1,0 +1,65 @@
+{% load static %}
+<html>
+<head>
+<title>Farming Route</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	function validate(formObj)
+	{
+	if(formObj.t1.value.length==0)
+	{
+	alert("Please Enter your advice");
+	formObj.t1.focus();
+	return false;
+	}
+	
+	formObj.actionUpdateData.value="update";
+	return true;
+	}
+	</script>	
+</head>
+<style>
+body {
+  background-image: url("{% static 'images/back.jpg' %}");
+}
+</style>
+<body>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>Online Farming Route System</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+          <ul>
+       
+      <li><a href="{% url 'ViewRequest' %}">View Farmer Advice Requests</a></li>
+	    <li><a href="{% url 'index' %}">Logout</a></li>
+   </ul>
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="915" height="286" alt="" /></div>
+      				<center>
+<form name="f1" method="post" action={% url 'AdvicePageAction' %} onsubmit="return validate(this);">
+{% csrf_token %}<br/>
+   <h2><b>Expert Advice Screen</b></h2>
+   
+	<font size="3" color="red"><center>{{ data|safe }}</center></font>
+						
+						<table align="center" width="30%" >
+			 <tr><td><font size='' color="black">Enter&nbsp;Your&nbsp;Advice</b></td>
+			 <td><textarea name="t1" rows="10" cols="60"></textarea></td></tr>
+         
+	
+			<tr><td></td><td><input type="submit" value="Submit"></td>
+			</table>
+				</div>	
+					
+				</div>
+				
+					
+	</body>
+</html>

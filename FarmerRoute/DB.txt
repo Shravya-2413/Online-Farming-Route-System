@@ -1,0 +1,15 @@
+create database farmerroute;
+use farmerroute;
+
+create table signup(person_name varchar(50),
+email varchar(50) primary key,
+password varchar(50),
+contact_no varchar(15),
+address varchar(250),
+usertype varchar(30),
+status varchar(30));
+
+create table query(email varchar(50), symptoms varchar(400), image varchar(50), advice varchar(500), query_date varchar(30));
+
+
+
